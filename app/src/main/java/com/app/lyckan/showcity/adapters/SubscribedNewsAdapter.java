@@ -119,13 +119,13 @@ public class SubscribedNewsAdapter extends RecyclerView.Adapter<SubscribedNewsAd
 
     private void setFadeAnimation(View view) {
         AlphaAnimation anim = new AlphaAnimation(0.0f, 1.0f);
-        anim.setDuration(2000);
+        anim.setDuration(1000);
         view.startAnimation(anim);
     }
 
     private void setScaleAnimation(View view) {
         ScaleAnimation anim = new ScaleAnimation(0.0f, 1.0f, 0.0f, 1.0f, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
-        anim.setDuration(2000);
+        anim.setDuration(1000);
         view.startAnimation(anim);
     }
 }

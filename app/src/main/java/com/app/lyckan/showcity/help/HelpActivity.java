@@ -1,92 +1,59 @@
 package com.app.lyckan.showcity.help;
 
-import android.net.Uri;
-import android.os.Bundle;
-import android.view.View;
-
-import com.app.lyckan.showcity.LoginActivity;
-
 import android.content.Intent;
+import android.graphics.Color;
+import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.widget.Toast;
 
-
+import com.app.lyckan.showcity.LoginActivity;
 import com.app.lyckan.showcity.R;
 import com.github.paolorotolo.appintro.AppIntro;
+import com.github.paolorotolo.appintro.AppIntroFragment;
 
-public class HelpActivity extends AppIntro implements IntroFragment_1.OnFragmentInteractionListener,
-        IntroFragment_2.OnFragmentInteractionListener,
-        IntroFragment_3.OnFragmentInteractionListener,
-        IntroFragment_4.OnFragmentInteractionListener{
-
-    //private PreferenceHelper preferenceHelper;
+public class HelpActivity extends AppIntro {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-
-        //preferenceHelper = new PreferenceHelper(this);
-
-//        if(preferenceHelper.getIntro().equals("no")){
-//            Intent intent = new Intent(HelpActivity.this, LoginActivity.class);
-//            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-//            startActivity(intent);
-//            this.finish();
-//        }
-
-        addSlide(new IntroFragment_1());  //extend AppIntro and comment setContentView
-        addSlide(new IntroFragment_2());
-        addSlide(new IntroFragment_3());
-        addSlide(new IntroFragment_4());
-
-
+        addSlide(AppIntroFragment.newInstance("Bienvenido!", "Estas un paso más cerca de estar cerca de todo",
+                R.drawable.ic_showcitylogo, Color.parseColor("#f64c73")));
+        addSlide(AppIntroFragment.newInstance("Inicia sesion!", "Solo te falta un paso para ser especial, registrate y encuentra algo interesante",
+                R.drawable.ic_showcitylogo, Color.parseColor("#20d2bb")));
+        addSlide(AppIntroFragment.newInstance("Comparte!", "Comparte los articulos de interesantes para ti",
+                R.drawable.ic_showcitylogo, Color.parseColor("#3395ff")));
+        addSlide(AppIntroFragment.newInstance("Puntea", "Califica todo lo que veas, busca hasta debajo de las piedras!",
+                R.drawable.ic_showcitylogo, Color.parseColor("#c873f4")));
+        // setFadeAnimation();
+        setDepthAnimation();
+//        setFadeAnimation();
+//        setZoomAnimation();
+//        setFlowAnimation();
+//        setSlideOverAnimation();
     }
 
     @Override
     public void onSkipPressed(Fragment currentFragment) {
         super.onSkipPressed(currentFragment);
-
-        Intent intent = new Intent(HelpActivity.this, LoginActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-        startActivity(intent);
-        this.finish();
+        // Do something when users tap on Skip button.
+        Toast.makeText(this,"Leelo :)", Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void onDonePressed(Fragment currentFragment) {
         super.onDonePressed(currentFragment);
-
-        //preferenceHelper.putIntro("no");
-        Intent intent = new Intent(HelpActivity.this, LoginActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+        // Do something when users tap on Done button.
+        //Toast.makeText(this,"You Pressed Done!!",Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
-        this.finish();
     }
 
     @Override
     public void onSlideChanged(@Nullable Fragment oldFragment, @Nullable Fragment newFragment) {
         super.onSlideChanged(oldFragment, newFragment);
         // Do something when the slide changes.
-    }
-
-    @Override  // this method is used for removing top and bottom navbars(fullscreen)
-    public void onWindowFocusChanged(boolean hasFocus) {
-        super.onWindowFocusChanged(hasFocus);
-        if (hasFocus) {
-            getWindow().getDecorView().setSystemUiVisibility(
-                    View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-                            | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-                            | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-                            | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-                            | View.SYSTEM_UI_FLAG_FULLSCREEN
-                            | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
-        }
 
     }
 
-    @Override
-    public void onFragmentInteraction(Uri uri) {
-
-    }
 }

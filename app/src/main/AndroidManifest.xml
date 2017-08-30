@@ -39,10 +39,8 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.app.lyckan.showcity.MainActivity" />
         </activity>
-        <activity android:name=".help.WelcomeActivity" />
         <activity android:name=".help.HelpActivity"
-            android:theme="@style/AppTheme.NoActionBar"
-            ></activity>
+            android:theme="@style/AppTheme.NoActionBar.Slide"></activity>
     </application>
 
 </manifest>
