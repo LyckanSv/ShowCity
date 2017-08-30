@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ShowCity</string>
+    <!--Login-->
+    <string name="hint_login_username">Nombre de Usuario</string>
+    <string name="hint_login_password">Contraseña</string>
+    <string name="text_button_login_sign_in">Iniciar Sesion</string>
+    <string name="text_button_login_sign_up">No tienes una cuenta?</string>
+    <string name="label_login_help">Ayuda</string>
+    <string name="image_transition_name">ImageTransition</string>
+
+</resources>
